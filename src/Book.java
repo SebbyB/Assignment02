@@ -4,7 +4,7 @@ package assign02;
  * This class represents a book, in which the ISBN, author, and title cannot
  * change once the book is created.  Note that ISBNs are unique.
  *
- * @author Erin Parker and ??
+ * @author Erin Parker and Amelia Neilson and Sebastian Barney
  * @version September 2, 2020
  */
 public class Book {
@@ -18,9 +18,9 @@ public class Book {
 	/**
 	 * Creates a book from the given ISBN, author, and title.
 	 *
-	 * @param isbn
-	 * @param author
-	 * @param title
+	 * @param isbn - the ISBN
+	 * @param author - the Author
+	 * @param title - the Title
 	 */
 	public Book(long isbn, String author, String title) {
 		this.isbn = isbn;
@@ -61,18 +61,22 @@ public class Book {
 	 *
 	 * @param other - the object begin compared with this book
 	 * @return true if other object is a Book type and is equal to this book, false otherwise
+	 *
+	 *  First checks if the object is of the class book.
+	 *  If it isn't it returns false.
+	 *  Otherwise it checks if the Isbn and the author and the title of other, are equal to the book it is comparing to.
+	 *  If the ISBN or the Author or the Title are different it returns false.
+	 *  Otherwise it Returns true.
+	 *
 	 */
 	public boolean equals(Object other) {
-		// FILL IN -- do not return false unless appropriate
-		if(this.getClass() != other.getClass()){
-
+		if(!(other instanceof Book)){
 			return false;
-
 		}
 		else{
-			if(this.getIsbn() != ((Book) other).getIsbn() || this.getAuthor() != ((Book) other).getAuthor() || this.getTitle() != ((Book) other).getTitle()){
+			Book B = (Book)other;
+			if(this.getIsbn() != B.getIsbn() || !this.getAuthor().equals(B.getAuthor()) || !this.getTitle().equals(B.getTitle())){
 				return false;
-
 			}
 			else{
 				return true;
@@ -80,34 +84,5 @@ public class Book {
 		}
 	}
 
-	/**
-	 * Returns a textual representation of this book.
-	 */
-	public String toString() {
-		return isbn + ", " + author + ", \"" + title + "\"";
+
 	}
-
-
-	public static void main(String[] args){
-
-//		System.out.println("This is the start of the program...");
-//		Book book1 = new Book(123,"Author of 123", "This book is called 123");
-//		Book book2 = new Book(456,"Author of 456", "This book is called 456");
-//		Book book3 = new Book(123,"Author of 123", "This book is called 123");
-//		String notBook = "hi";
-//
-//
-//		System.out.println("Is book1 equal to book 2");
-//		System.out.println(book1.equals(book2));
-//		System.out.println("Is book1 equal to book 3");
-//		System.out.println(book1.equals(book3));
-//		System.out.println("Is book1 equal to notBook");
-//		System.out.println(book1.equals(notBook));
-//
-//
-//		System.out.println("This is the end of the code...");
-//
-//
-//
-	}
-}
